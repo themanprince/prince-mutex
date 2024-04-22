@@ -1,0 +1,18 @@
+{
+  "name": "prince-mutex",
+  "version": "1.0.4",
+  "description": "Well... I got a very bad mutex implementation from GPT. I had to design one from scratch.. Is this the AI that is supposed to take my job? lol",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "prince",
+    "mutex",
+    "mutual-exclusion",
+    "adigwe",
+    "prince-mutex"
+  ],
+  "author": "themanprince",
+  "license": "ISC"
+}
