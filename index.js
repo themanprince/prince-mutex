@@ -53,53 +53,12 @@ class Mutex {
 			return await this.#promiseQueue[promiseIndex - 1];
 		}
 	}
+	
+	async queueCritical(func) {
+		const release = await this.lock();
+		await func();
+		release();
+	}
 }
 
 module.exports = Mutex;
-
-//testing out
-/*const mutex = new Mutex();
-
-async function test0() {
-	console.log(`in test0, before locking mutex`);
-	const release = await mutex.lock();
-	console.log(`test0 just obtained mutex lock`);
-	await new Promise(resolve => setTimeout(resolve, 2000));
-	console.log(`just finished running test0 long shi... releasing mutex`);
-	release();
-}
-async function test1() {
-	console.log(`in test1, before locking mutex`);
-	const release = await mutex.lock();
-	console.log(`test1 just obtained mutex lock`);
-	await new Promise(resolve => setTimeout(resolve, 2000));
-	console.log(`just finished running test1 long shi... releasing mutex`);
-	release();
-}
-async function test2() {
-	console.log(`in test2, before locking mutex`);
-	const release = await mutex.lock();
-	console.log(`test2 just obtained mutex lock`);
-	await new Promise(resolve => setTimeout(resolve, 2000));
-	console.log(`just finished running test2 long shi... releasing mutex`);
-	release();
-}
-async function test3() {
-	console.log(`in test3, before locking mutex`);
-	const release = await mutex.lock();
-	console.log(`test3 just obtained mutex lock`);
-	await new Promise(resolve => setTimeout(resolve, 2000));
-	console.log(`just finished running test3 long shi... releasing mutex`);
-	release();
-}
-
-test0();
-test1();
-test2().then(() => {
-	test1()
-	test3();
-	test3().then(() => {
-		test1()
-		test3();
-	});
-});*/
