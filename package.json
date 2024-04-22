@@ -1,6 +1,6 @@
 {
   "name": "prince-mutex",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Well... I got a very bad mutex implementation from GPT. I had to design one from scratch.. Is this the AI that is supposed to take my job? lol",
   "main": "index.js",
   "scripts": {
